@@ -1,15 +1,16 @@
 package src;
 
-public class FirePokemon extends Pokémon{
- private String flameThrower;
- private String fireLash;
-    public FirePokemon(String sound, String food, String flameThrower, String fireLash, int level) {
-        super(sound, food, level);
+public class FirePokemon extends Pokémon {
+    private int flameThrower;
+    private String fireLash;
+
+    public FirePokemon(String sound, String food, int flameThrower, String fireLash) {
+        super(sound, food);
         this.flameThrower = flameThrower;
         this.fireLash = fireLash;
     }
 
-    public String getFlameThrower() {
+    public int getFlameThrower() {
         return flameThrower;
     }
 
@@ -17,11 +18,24 @@ public class FirePokemon extends Pokémon{
         return fireLash;
     }
 
-    public void setFlameThrower(String flameThrower) {
+    public void setFlameThrower(int flameThrower) {
         this.flameThrower = flameThrower;
     }
 
     public void setFireLash(String fireLash) {
         this.fireLash = fireLash;
+    }
+
+    public String nextLevel() {
+        return " level 2!";
+    }
+
+    public void printFoodAndSound() {
+        System.out.println("Fire Pokémon eats: " + getFood() + " and makes a " + getSound() + " sound!");
+    }
+
+    @Override
+    public void level() {
+        System.out.println("Flame Thrower, " + flameThrower + ", moved to" + nextLevel());
     }
 }
